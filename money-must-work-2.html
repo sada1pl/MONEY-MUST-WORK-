@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money Must Work – Kryptowaluty, DeFi, Airdropy i Futures po polsku</title>
+<meta name="description" content="Money Must Work – kanał i blog o kryptowalutach po polsku. Airdropy, trading futures, DeFi, pasywny dochód i analiza techniczna. Bez ściemy, bez płatnych grup.">
+<meta name="keywords" content="kryptowaluty, DeFi, airdropy, futures krypto, pasywny dochód krypto, trading kryptowaluty, YouTube krypto po polsku, Money Must Work">
+<meta property="og:title" content="Money Must Work – Kryptowaluty, DeFi, Airdropy">
+<meta property="og:description" content="Krypto po polsku bez ściemy. Airdropy, futures, DeFi i pasywny dochód – praktycznie i na temat.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@cryptosadaPL">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E8001D;
+    --white: #F5F0E8;
+    --black: #080808;
+    --gray: #1a1a1a;
+    --gray2: #2a2a2a;
+    --accent: #FF2233;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* CUSTOM CURSOR */
+  .cursor {
+    position: fixed;
+    width: 12px; height: 12px;
+    background: var(--red);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s, width 0.2s, height 0.2s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(232,0,29,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.3;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(4px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* INLINE SVG LOGO */
+  .logo-svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--white);
+    line-height: 1;
+  }
+  .nav-brand span { color: var(--red); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--red); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 120px 40px 80px;
+    overflow: hidden;
+  }
+
+  /* Grid background */
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(232,0,29,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,0,29,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  /* Red glow blob */
+  .hero-glow {
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(232,0,29,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    bottom: -150px; left: -50px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(232,0,29,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Floating bills background */
+  .bill-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .bill {
+    position: absolute;
+    width: 80px;
+    opacity: 0.04;
+    animation: floatBill linear infinite;
+  }
+
+  @keyframes floatBill {
+    0% { transform: translateY(100vh) rotate(var(--r)); }
+    100% { transform: translateY(-200px) rotate(calc(var(--r) + 30deg)); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s ease forwards;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 14vw, 200px);
+    line-height: 0.88;
+    letter-spacing: -2px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s ease forwards;
+  }
+
+  .hero-title .line1 { display: block; color: var(--white); }
+  .hero-title .line2 {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--white);
+    position: relative;
+  }
+  .hero-title .line3 {
+    display: block;
+    color: var(--red);
+    text-shadow: 0 0 60px rgba(232,0,29,0.4);
+  }
+
+  .hero-sub {
+    margin-top: 40px;
+    max-width: 520px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(245,240,232,0.55);
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.7s ease forwards;
+  }
+
+  .hero-cta {
+    margin-top: 50px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s ease forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    padding: 14px 36px;
+    text-decoration: none;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition: background 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .btn-primary:hover {
+    background: #ff2233;
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(245,240,232,0.25);
+    color: var(--white);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    padding: 14px 36px;
+    text-decoration: none;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .btn-outline:hover {
+    border-color: var(--red);
+    color: var(--red);
+    transform: translateY(-2px);
+  }
+
+  /* Stats ticker */
+  .ticker-wrap {
+    position: relative;
+    background: var(--red);
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-track {
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+  }
+  .ticker-track span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    padding: 0 40px;
+  }
+  .ticker-track span::before {
+    content: '◆';
+    margin-right: 16px;
+    opacity: 0.6;
+  }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ABOUT / WHAT I DO */
+  .section {
+    padding: 100px 40px;
+    position: relative;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(232,0,29,0.3);
+    max-width: 60px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 96px);
+    letter-spacing: -1px;
+    line-height: 0.9;
+    margin-bottom: 60px;
+  }
+
+  /* SERVICES GRID */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--gray);
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+  }
+  .service-card:hover {
+    background: var(--gray2);
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--red);
+    transition: height 0.4s ease;
+  }
+  .service-card:hover::before { height: 100%; }
+
+  .service-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(232,0,29,0.5);
+    margin-bottom: 24px;
+  }
+
+  .service-icon {
+    font-size: 36px;
+    margin-bottom: 20px;
+    display: block;
+    line-height: 1;
+  }
+
+  .service-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .service-desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(245,240,232,0.5);
+    font-weight: 400;
+  }
+
+  /* YOUTUBE SECTION */
+  .yt-section {
+    background: var(--gray);
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .yt-section::before {
+    content: 'YT';
+    position: absolute;
+    right: -20px; top: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 300px;
+    color: rgba(232,0,29,0.03);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .yt-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .yt-content .section-title { margin-bottom: 24px; }
+  .yt-content p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.55);
+    margin-bottom: 32px;
+    font-weight: 400;
+  }
+
+  .yt-visual {
+    position: relative;
+  }
+
+  .yt-card {
+    background: var(--black);
+    border: 1px solid rgba(232,0,29,0.2);
+    padding: 28px;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+  }
+
+  .yt-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .yt-icon {
+    width: 36px; height: 36px;
+    background: var(--red);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .yt-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+
+  .yt-stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .yt-stat {
+    background: var(--gray);
+    padding: 16px;
+  }
+
+  .yt-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--red);
+    letter-spacing: 1px;
+  }
+
+  .yt-stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(245,240,232,0.4);
+    text-transform: uppercase;
+  }
+
+  /* TOPICS */
+  .topics-section {
+    padding: 100px 40px;
+  }
+
+  .topics-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
+  }
+
+  .topic-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: 1px solid rgba(245,240,232,0.12);
+    color: rgba(245,240,232,0.6);
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .topic-tag:hover {
+    border-color: var(--red);
+    color: var(--red);
+    background: rgba(232,0,29,0.06);
+  }
+  .topic-tag.hot {
+    border-color: var(--red);
+    color: var(--red);
+    background: rgba(232,0,29,0.08);
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    padding: 120px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '$$';
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 600px;
+    color: rgba(232,0,29,0.025);
+    line-height: 1;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 10vw, 130px);
+    line-height: 0.9;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-title em {
+    font-style: normal;
+    color: var(--red);
+  }
+
+  .cta-sub {
+    font-size: 17px;
+    color: rgba(245,240,232,0.5);
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border: 1px solid rgba(245,240,232,0.15);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+  .social-btn:hover {
+    background: var(--red);
+    border-color: var(--red);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid rgba(245,240,232,0.06);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(245,240,232,0.25);
+    text-transform: uppercase;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(232,0,29,0.3), transparent);
+    margin: 0 40px;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Blinking cursor */
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  .blink { animation: blink 1s step-start infinite; }
+
+  /* BLOG */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+  }
+
+  .blog-card {
+    background: var(--gray);
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+    transition: background 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .blog-card:hover { background: var(--gray2); }
+  .blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--red);
+    transition: height 0.4s ease;
+  }
+  .blog-card:hover::before { height: 100%; }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .blog-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--red);
+    padding: 4px 10px;
+  }
+
+  .blog-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(245,240,232,0.35);
+    text-transform: uppercase;
+  }
+
+  .blog-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: var(--white);
+    line-height: 1.15;
+  }
+
+  .blog-excerpt {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(245,240,232,0.5);
+    font-weight: 400;
+    flex: 1;
+  }
+
+  .blog-footer {
+    border-top: 1px solid rgba(245,240,232,0.06);
+    padding-top: 16px;
+    margin-top: auto;
+  }
+
+  .blog-read {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--red);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  a.blog-read:hover { color: var(--white); }
+
+  @media (max-width: 768px) {
+    .blog-grid { gap: 2px; }
+  }
+
+
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .section { padding: 60px 20px; }
+    .yt-inner { grid-template-columns: 1fr; }
+    .hero-title { font-size: clamp(64px, 18vw, 120px); }
+    .yt-section { padding: 60px 20px; }
+    .cta-section { padding: 80px 20px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 30px 20px; }
+    .divider { margin: 0 20px; }
+    .topics-section { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <!-- LOGO SVG -->
+    <svg class="logo-svg" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="44" height="44" fill="#E8001D"/>
+      <!-- M shape -->
+      <path d="M6 34V10L15 24L22 14L29 24L38 10V34" stroke="#F5F0E8" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>
+      <!-- dollar underline -->
+      <rect x="6" y="37" width="32" height="2.5" fill="#F5F0E8"/>
+    </svg>
+    <div class="nav-brand">Money<span>Must</span>Work</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#uslugi">Usługi</a></li>
+    <li><a href="#youtube">YouTube</a></li>
+    <li><a href="#tematy">Tematy</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <!-- Floating bills -->
+  <div class="bill-bg" id="billBg"></div>
+
+  <div style="position:relative;z-index:2;">
+    <p class="hero-eyebrow">// Kryptowaluty · DeFi · Futures · Airdropy</p>
+
+    <h1 class="hero-title">
+      <span class="line1">Money</span>
+      <span class="line2">Must</span>
+      <span class="line3">Work<span class="blink">_</span></span>
+    </h1>
+
+    <p class="hero-sub">
+      Gram na rynku krypto od kilku lat — szukam airdropów, trejduję futures i buduję pasywny dochód przez DeFi. Na YouTube tłumaczę to wszystko po ludzku, bez owijania w bawełnę.
+    </p>
+
+    <div class="hero-cta">
+      <a href="https://youtube.com/@sadapl?si=hfaCMDTrXZ5C6-UY" class="btn-primary">▶ YouTube</a>
+      <a href="#uslugi" class="btn-outline">// Co robię</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker">
+    <span>Bitcoin</span>
+    <span>Ethereum</span>
+    <span>Airdropy</span>
+    <span>DeFi Yield</span>
+    <span>Futures Trading</span>
+    <span>Pasywny Dochód</span>
+    <span>Krypto Edukacja</span>
+    <span>Layer 2</span>
+    <span>Staking</span>
+    <span>Liquidity Mining</span>
+    <span>Money Must Work</span>
+    <span>Bitcoin</span>
+    <span>Ethereum</span>
+    <span>Airdropy</span>
+    <span>DeFi Yield</span>
+    <span>Futures Trading</span>
+    <span>Pasywny Dochód</span>
+    <span>Krypto Edukacja</span>
+    <span>Layer 2</span>
+    <span>Staking</span>
+    <span>Liquidity Mining</span>
+    <span>Money Must Work</span>
+  </div>
+</div>
+
+<!-- BLOG / AKTUALNOŚCI -->
+<section class="section" id="blog">
+  <div class="section-label">// Blog & Aktualności</div>
+  <h2 class="section-title reveal">Co się<br>dzieje<br><span style="color:var(--red)">w krypto.</span></h2>
+  <p class="reveal" style="font-size:17px;color:rgba(245,240,232,0.5);margin-bottom:48px;font-weight:400;">Krótkie wpisy o tym, co aktualnie obserwuję na rynku — bez owijania w bawełnę.</p>
+
+  <div class="blog-grid">
+
+    <!-- WPIS 1 -->
+    <article class="blog-card reveal">
+      <div class="blog-meta">
+        <span class="blog-tag">Giełdy</span>
+        <span class="blog-date">Maj 2025</span>
+      </div>
+      <h3 class="blog-title">Coinbase zwalnia 700 osób i stawia wszystko na AI</h3>
+      <p class="blog-excerpt">Jedna z największych giełd krypto ogłosiła redukcję 700 etatów — ok. 14% zespołu. Powód? Restrukturyzacja i mocne wejście w automatyzację opartą na sztucznej inteligencji. Największa fala zwolnień w branży od początku 2026 roku.</p>
+      <div class="blog-footer">
+        <span class="blog-read">🇵🇱 Aktualności</span>
+      </div>
+    </article>
+
+    <!-- WPIS 2 -->
+    <article class="blog-card reveal" style="transition-delay:0.1s">
+      <div class="blog-meta">
+        <span class="blog-tag">Regulacje</span>
+        <span class="blog-date">Maj 2025</span>
+      </div>
+      <h3 class="blog-title">Rząd i prezydent ścierają się o ustawę o kryptoaktywach</h3>
+      <p class="blog-excerpt">W Polsce trwa gorąca walka o kształt ustawy regulującej rynek krypto. Rząd chce kar do 30 mln zł i 8 lat więzienia za oszustwa, prezydent proponuje łagodniejszą wersję z mniejszymi uprawnieniami dla KNF. Największa zmiana regulacyjna w polskim krypto od lat.</p>
+      <div class="blog-footer">
+        <span class="blog-read">🇵🇱 Polska</span>
+      </div>
+    </article>
+
+    <!-- WPIS 3 -->
+    <article class="blog-card reveal" style="transition-delay:0.2s">
+      <div class="blog-meta">
+        <span class="blog-tag">Bitcoin</span>
+        <span class="blog-date">Maj 2025</span>
+      </div>
+      <h3 class="blog-title">MicroStrategy raportuje stratę 12,5 mld USD przez spadek Bitcoina</h3>
+      <p class="blog-excerpt">Firma Michaela Saylora odnotowała w I kwartale stratę 12,5 mld USD — głównie przez korektę ceny BTC. Mimo tego spółka trzyma strategię „Bitcoin-first" i nie planuje sprzedaży ani jednej satoshi.</p>
+      <div class="blog-footer">
+        <span class="blog-read">🌍 Świat</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICES -->
+<section class="section" id="uslugi">
+  <div class="section-label">01 / Co robię</div>
+  <h2 class="section-title reveal">Krypto.<br>Bez lania<br><span style="color:var(--red)">wody.</span></h2>
+
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-number">01 /</div>
+      <span class="service-icon">🎯</span>
+      <div class="service-title">Airdropy</div>
+      <p class="service-desc">Poluję na airdropy, które faktycznie mają sens. Sprawdzam projekt, koszty wejścia i to, czy gra jest warta świeczki.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:0.1s">
+      <div class="service-number">02 /</div>
+      <span class="service-icon">📈</span>
+      <div class="service-title">Futures Trading</div>
+      <p class="service-desc">Gram futuresy, ale z głową — technika, ryzyko, konkretne setupy. Zero kasyna.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:0.2s">
+      <div class="service-number">03 /</div>
+      <span class="service-icon">🌊</span>
+      <div class="service-title">DeFi</div>
+      <p class="service-desc">Siedzę w DeFi na co dzień — LP, farmy, nowe protokoły. Lubię wchodzić zanim zrobi się tłoczno.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:0.3s">
+      <div class="service-number">04 /</div>
+      <span class="service-icon">⚡</span>
+      <div class="service-title">Pasywny Dochód</div>
+      <p class="service-desc">Staking, lending, restaking — wszystko, co sprawia, że krypto pracuje, kiedy ja robię swoje.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:0.4s">
+      <div class="service-number">05 /</div>
+      <span class="service-icon">🎓</span>
+      <div class="service-title">YouTube</div>
+      <p class="service-desc">Na YouTube tłumaczę krypto tak, jak sam chciałem, żeby mi ktoś wytłumaczył — prosto, konkretnie, bez lania wody.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:0.5s">
+      <div class="service-number">06 /</div>
+      <span class="service-icon">🔍</span>
+      <div class="service-title">Research</div>
+      <p class="service-desc">Sprawdzam nowe projekty zanim zrobi się o nich głośno — tokenomika, zespół, roadmapa. Lubię wiedzieć wcześniej, co ma potencjał.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:0.6s">
+      <div class="service-number">07 /</div>
+      <span class="service-icon">🤖</span>
+      <div class="service-title">AI & Automatyzacja</div>
+      <p class="service-desc">Narzędzia, skrypty, modele i workflow, które przyspieszają pracę w krypto i nie tylko.</p>
+    </div>
+
+    <div class="service-card reveal" style="transition-delay:0.7s">
+      <div class="service-number">08 /</div>
+      <span class="service-icon">🛠️</span>
+      <div class="service-title">Tworzenie Stron / Aplikacji</div>
+      <p class="service-desc">Buduję proste, szybkie strony i automaty, które rozwiązują konkretne problemy.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- YOUTUBE -->
+<section class="yt-section" id="youtube">
+  <div class="yt-inner">
+    <div class="yt-content">
+      <div class="section-label">02 / YouTube</div>
+      <h2 class="section-title reveal">Wiedza<br>która<br><span style="color:var(--red)">Procentuje.</span></h2>
+      <p>Tłumaczę krypto po ludzku — tak, jak sam chciałem to kiedyś usłyszeć. Bez bullshitu, bez płatnych grup, bez pompowania.</p>
+      <a href="https://youtube.com/@sadapl?si=hfaCMDTrXZ5C6-UY" class="btn-primary">▶ Subskrybuj kanał</a>
+    </div>
+
+    <div class="yt-visual reveal">
+      <div class="yt-card">
+        <div class="yt-bar">
+          <div class="yt-icon">▶</div>
+          <div class="yt-name">Money Must Work</div>
+        </div>
+        <div style="background:var(--gray);height:160px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue';font-size:48px;color:rgba(232,0,29,0.3);letter-spacing:4px;margin-bottom:16px;">
+          MMW
+        </div>
+        <div class="yt-stat-row">
+          <div class="yt-stat">
+            <div class="yt-stat-num">DeFi</div>
+            <div class="yt-stat-label">Specjalność</div>
+          </div>
+          <div class="yt-stat">
+            <div class="yt-stat-num">24/7</div>
+            <div class="yt-stat-label">Krypto never sleeps</div>
+          </div>
+          <div class="yt-stat">
+            <div class="yt-stat-num">FREE</div>
+            <div class="yt-stat-label">Bez płatnych grup</div>
+          </div>
+          <div class="yt-stat">
+            <div class="yt-stat-num">RAW</div>
+            <div class="yt-stat-label">Bez filtrów</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section class="topics-section" id="tematy">
+  <div class="section-label">03 / Tematy</div>
+  <h2 class="section-title reveal">Czym się<br><span style="color:var(--red)">zajmuję.</span></h2>
+  <p class="reveal" style="font-size:17px;color:rgba(245,240,232,0.5);margin-bottom:32px;font-weight:400;">To są tematy, w których siedzę na co dzień — od Bitcoina po DeFi i analizę on-chain.</p>
+
+  <div class="topics-grid reveal">
+    <div class="topic-tag hot">Bitcoin</div>
+    <div class="topic-tag hot">Ethereum</div>
+    <div class="topic-tag hot">Airdropy</div>
+    <div class="topic-tag hot">Futures</div>
+    <div class="topic-tag hot">DeFi</div>
+    <div class="topic-tag">Analiza Techniczna</div>
+    <div class="topic-tag">Tokenomika</div>
+    <div class="topic-tag">Staking</div>
+    <div class="topic-tag">Restaking</div>
+    <div class="topic-tag">Liquidity Pools</div>
+    <div class="topic-tag">Layer 2</div>
+    <div class="topic-tag">NFT</div>
+    <div class="topic-tag">Web3</div>
+    <div class="topic-tag">Yield Farming</div>
+    <div class="topic-tag">On-Chain Analiza</div>
+    <div class="topic-tag">Zarządzanie Ryzykiem</div>
+    <div class="topic-tag">Krypto Portfel</div>
+    <div class="topic-tag">Smart Contracts</div>
+    <div class="topic-tag">Altcoiny</div>
+    <div class="topic-tag">Pasywny Dochód</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section" id="kontakt">
+  <div class="section-label" style="justify-content:center">05 / Kontakt</div>
+  <h2 class="cta-title reveal">
+    Niech Twoje<br>
+    pieniądze<br>
+    <em>pracują.</em>
+  </h2>
+  <p class="cta-sub reveal">Jeśli chcesz, żeby Twoje krypto faktycznie pracowało — wpadaj. Uczę się codziennie i dzielę się tym, co działa.</p>
+
+  <div class="social-links reveal">
+    <a href="https://youtube.com/@sadapl?si=hfaCMDTrXZ5C6-UY" class="social-btn">▶ YouTube</a>
+    <a href="https://x.com/cryptosadaPL" class="social-btn">✕ Twitter/X</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <svg width="24" height="24" viewBox="0 0 44 44" fill="none">
+      <rect width="44" height="44" fill="#E8001D"/>
+      <path d="M6 34V10L15 24L22 14L29 24L38 10V34" stroke="#F5F0E8" stroke-width="3.5" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>
+      <rect x="6" y="37" width="32" height="2.5" fill="#F5F0E8"/>
+    </svg>
+    <p>Money Must Work © 2025</p>
+  </div>
+  <p>Krypto · DeFi · Futures · YouTube</p>
+  <p>Nie jest to porada inwestycyjna.</p>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
+
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '20px';
+      cursor.style.height = '20px';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '12px';
+      cursor.style.height = '12px';
+    });
+  });
+
+  // Floating bills
+  const billBg = document.getElementById('billBg');
+  const billSVG = `<svg viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1" y="1" width="98" height="48" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
+    <circle cx="50" cy="25" r="12" stroke="white" stroke-width="1.5" fill="none"/>
+    <text x="50" y="30" text-anchor="middle" fill="white" font-size="12" font-family="serif">$</text>
+    <rect x="5" y="5" width="10" height="8" rx="1" fill="white" opacity="0.5"/>
+    <rect x="85" y="5" width="10" height="8" rx="1" fill="white" opacity="0.5"/>
+    <rect x="5" y="37" width="10" height="8" rx="1" fill="white" opacity="0.5"/>
+    <rect x="85" y="37" width="10" height="8" rx="1" fill="white" opacity="0.5"/>
+  </svg>`;
+
+  for (let i = 0; i < 12; i++) {
+    const bill = document.createElement('div');
+    bill.className = 'bill';
+    const left = Math.random() * 100;
+    const dur = 15 + Math.random() * 20;
+    const delay = -Math.random() * dur;
+    const rot = (Math.random() - 0.5) * 60;
+    bill.style.cssText = `left:${left}%;animation-duration:${dur}s;animation-delay:${delay}s;--r:${rot}deg;width:${60+Math.random()*60}px`;
+    bill.innerHTML = billSVG;
+    billBg.appendChild(bill);
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Smooth nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
