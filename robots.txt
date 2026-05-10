@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sada1pl.github.io/MONEY-MUST-WORK-/sitemap.xml
