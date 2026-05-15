@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Strona główna -->
+  <url>
+    <loc>https://sada1pl.github.io/MONEY-MUST-WORK-/</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Sekcja: Blog / Aktualności -->
+  <url>
+    <loc>https://sada1pl.github.io/MONEY-MUST-WORK-/#blog</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Sekcja: Co robię -->
+  <url>
+    <loc>https://sada1pl.github.io/MONEY-MUST-WORK-/#uslugi</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sekcja: YouTube -->
+  <url>
+    <loc>https://sada1pl.github.io/MONEY-MUST-WORK-/#youtube</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Sekcja: Tematy -->
+  <url>
+    <loc>https://sada1pl.github.io/MONEY-MUST-WORK-/#tematy</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sekcja: Kontakt -->
+  <url>
+    <loc>https://sada1pl.github.io/MONEY-MUST-WORK-/#kontakt</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
